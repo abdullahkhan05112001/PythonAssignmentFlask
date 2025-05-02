@@ -1,0 +1,59 @@
+/* General body styles */
+body {
+    background-color: #f4f9fc; /* Soft white background */
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Container for centering */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Section */
+.login-section {
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    color: #003366; /* Dark blue */
+    font-size: 2em;
+}
+
+/* Links */
+a.nav-link {
+    color: #007bff; /* Blue color for links */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+a.nav-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Paragraph text */
+p {
+    color: #555;
+}
+
+/* Optional: Add a button style for "Login" and "Sign up" */
+.nav-link {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #007bff;
+    color: white;
+}

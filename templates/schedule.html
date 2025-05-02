@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Schedule</h1>
+    <hr>
+
+    {% if all_availability %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Employee</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Time Slot</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Date Modified</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in all_availability %}
+                    <tr>
+                        <td>{{ row['email'] }}</td>
+                        <td>{{ row['day_available'] }}</td>
+                        <td>{{ row['time_slot'] }}</td>
+                        <td>{{ row['position'] }}</td>
+                        <td>{{ row['date_added'] }}</td>
+                        <td>{{ row['date_modified'] }}</td>
+                        <td>
+                            <form action="{{ url_for('admin_edit_position', employee_availability_id=row['_id']) }}" method="POST">
+                                <button type="submit" class="btn btn-warning btn-sm">Change Position</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+        <p class="text-center">No availability records found.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Position{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Update Position for {{ availability['email'] }}</h3>
+                    <hr>
+
+                    <form method="POST" action="{{ url_for('admin_update_position', employee_availability_id=availability['_id']) }}">
+
+                        <div class="form-group mb-3">
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" class="form-control" required readonly value="{{ availability['email'] }}">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="day_available">Day:</label>
+                            <input type="text" id="day_available" name="day_available" class="form-control" required readonly value="{{ availability['day_available'] }}">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="time_slot">Time Slot:</label>
+                            <input type="text" id="time_slot" name="time_slot" class="form-control" required readonly value="{{ availability['time_slot'] }}">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="position" class="form-label">Position:</label>
+                            <select class="form-select" aria-label="position" name="position">
+                                <option value="Phones" {% if availability['position'] == 'Phones' %}selected{% endif %}>Phones</option>
+                                <option value="Info" {% if availability['position'] == 'Info' %}selected{% endif %}>Info</option>
+                                <option value="Front Doors" {% if availability['position'] == 'Front Doors' %}selected{% endif %}>Front Doors</option>
+                                <option value="Epic" {% if availability['position'] == 'Epic' %}selected{% endif %}>Epic</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="date_added">Date Added:</label>
+                            <input type="text" id="date_added" name="date_added" class="form-control" required readonly value="{{ availability['date_added'] }}">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Update Position</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
